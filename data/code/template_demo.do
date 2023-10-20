@@ -292,8 +292,8 @@ set scheme cblind1
 	eststo clear
 	
 	eststo: 	reg 	price mpg, $regression			
-	eststo:		reg 	price mpg foreign headroom trunk weight length, $regression
-	eststo: 	reghdfe	price mpg foreign headroom trunk weight length, $regression absorb(brand)
+	eststo:		reg 	price mpg foreign headroom trunk weight gear_ratio, $regression
+	eststo: 	reghdfe	price mpg foreign headroom trunk weight gear_ratio, $regression absorb(brand)
 	
 	esttab 		using  		"$table_dir\`label'", $reg_format $reg_decimal `locals' 
 	eststo clear
