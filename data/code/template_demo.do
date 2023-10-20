@@ -25,7 +25,7 @@ set scheme cblind1
 }	
 
 	if 		"`c(username)'" == "GRANTS" {
-				cd "C:\Users\grants\OneDrive - Inter-American Development Bank Group\Projects\\`project'\"
+				cd "C:\Users\grants\OneDrive - Inter-American Development Bank Group\Documents\GitHub\\`project'\"
 } 																				// Will set current directory to Grant's path if username is listed as "GRANTS"
 
 * Set General Output Formats *************************************************** // Set of commands that will be applied to entire project. 
