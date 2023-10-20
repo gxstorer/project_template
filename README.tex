@@ -1,0 +1,106 @@
+\documentclass[12pt]{article}
+
+\title{READ ME}
+
+\begin{document}
+
+\maketitle
+
+\section{Intro}
+This template is designed to be a comprehensive template for research projects; from do-files that provide macros to create output formats in a consistent fashion, but also the file organization that harmonizes the analysis phase with the writing phase. The two biggest issues I've dealt with in applying results to paper is that the table and other output formats are cumbersome to design and to be consistent throughout the paper, and updating draft with latest versions of outputs. To address these issues, the DO-file template comes with a suite of preset formats so that outputs are consistent with each other, but also the path of where the outputs are stored allows for replacing and adding new figures is less problematic. This process can be further expedited when using online editor, Overleaf, with repository synching with GitHub. Once set up, changes made in Stata can seamlessly pushed into your paper in Overleaf with minimal effort and editing.
+
+\section{Template Design}
+Project folders are categorized into two subfolders: \textbf{"data"} and \textbf{"project"}. Data stores folders pertaining to the inputs used in the project, meanwhile the project folder stores various outputs that come from the data.
+
+\begin{itemize} 
+
+\item Data:
+
+\begin{itemize}
+\item \textbf{original\_data}: A folder where any source data that the project is based on is located. Keeping this separate helps ensure the preservation of the original data for reproducability.
+
+\item \textbf{working\_data}: 	A folder where any produced data within the project is located. Merging datasets, converting .CSV files into .DTA files will all be located here and separate from original data.
+
+\item \textbf{code}: DO-files used in project.
+\end{itemize}
+
+\item Project:
+
+\begin{itemize}
+
+\item \textbf{sections}: Each section of a paper falls into 8 distinct sections, and each may require minor formatting changes. This folder stores each of the .tex files and a set of starter templates to allow ease in the process of producing an initial document.
+\item \textbf{tables}: Tables produced in project will be stored as .tex files that all can be found in this one folder. DO-file will use the local macros to direct all tables produced to be stored in this folder.
+
+\item \textbf{figures}: Graphs and images produced in project will be stored in this folder.
+
+\item \textbf{equations}: Equations will be stored in this folder.
+
+\end{itemize}
+
+\end{itemize}
+
+\section{DO-file}
+Within the "code" folder, there is a DO-file labeled as "do\_file\_template.dta". This template is designed to automate outputs as efficiently as possible through the use of macros. Many outputs are intended to follow a consistent design to enhance readibility, but implementing a custom design and maintaining consistency is quite cumbersome. 
+
+\begin{itemize}
+
+
+\item Each line of code generally falls into 4 columns:
+
+(1) command (2) command code (3) command syntax (4) comments*
+ 
+* Lengthy command codes and syntax are spaced into multiple columns for better visability.
+
+
+
+\item Comments will explain what the code does, but also will highlight if there is a manual entry that is needed that are categorized as:
+
+\begin{itemize}
+\item (Required)  : User must make some kind of action before running do-files
+\item (Manual)   	: During editing phase, editor will have to make a manual change from template before running do-files.
+\item (Optional)    	: User may manually change code syntax if applicable.
+\item (NOTE)        	: Additional information regarding manual changes of given code.
+\end{itemize}
+
+\item DO-file automates at two levels: global and locals.
+
+\begin{itemize}
+\item \textbf{globals}: Many outputs use the same types of commands, and when going through the editing process, it's cumbersome to get all outputs using a consistent format throughout; some tables may have different decimal placements, or using different LaTeX commands. During the editing phase, modify which commands that are desired to be consistent throughout.
+
+\item \textbf{locals}: Each output is going to have output-specific commands (i.e. title). The local macros section provides a template set of local macros that are to be placed with each exported output. The \textbf{`locals'} macro groups all locals together so that the export command is short and to make troubleshooting more efficient.
+\end{itemize}
+
+\item Checklist for running this specific do-file: 
+\begin{itemize}
+
+\item Ensure project folder holds the main folders.
+\begin{itemize}
+\item Internal users: ensure the local macro "project" matches folder name and that the path is set.
+\item External users: Set path to project as noted in the "\textbf{Set Current Directory}" section of DO-file.
+\end{itemize}
+
+\item Review all "(Optional)" codes and confirm those options.
+\item Packages required: \textbf{ESTOUT} \& \textbf{REGHDFE} 
+\item Optional package: \textbf{SCHEMEPACK}
+
+\begin{itemize}
+\item If not currently downloaded, then manually enter these commands:
+\begin{itemize}
+\item \textbf{ssc install estout}
+\item \textbf{ssc install reghdfe}
+\item \textbf{ssc install schemepack}
+\end{itemize}
+
+\end{itemize}
+\end{itemize}
+\end{itemize}
+
+\section{Process}
+
+\begin{enumerate}
+\item 
+
+\end{enumerate}
+
+
+\end{document}
