@@ -295,7 +295,27 @@ set scheme cblind1
 	eststo:		reg 	price mpg foreign headroom trunk weight length, $regression
 	eststo: 	reghdfe	price mpg foreign headroom trunk weight length, $regression absorb(brand)
 	
-	esttab 		using  		"$table_dir\`label'", $reg_format $reg_decimal `locals' 
+	esttab		using		"$table_dir\reg_prices_1"	, replace tex title(Car Prices: No Format)
+	
+	esttab		using		"$table_dir\reg_prices_2"	, replace tex title(Car Prices: Simple Format) /// 
+														  label star(* .10 ** .05 *** .01) b(2) se(2) r2
+														  
+	esttab		using		"$table_dir\reg_prices_3"	, replace tex title(Car Prices: Functionable Format) /// 
+														  label star(* .10 ** .05 *** .01) b(2) se(2) r2 /// 
+														  mtitles("Model (1)" "Model (2)" "Model (3)") collabels("price") coeflabels( _cons "Constant" ) ///
+														  refcat( foreign "Controls", nolabel) substitute(Standard "Clustered standard") nogaps nonum
+														  
+	esttab		using		"$table_dir\reg_prices_4"	, replace booktabs title(Car Prices: Booktabs Format) /// 
+														  label star(* .10 ** .05 *** .01) b(2) se(2) r2 /// 
+														  mtitles("Model (1)" "Model (2)" "Model (3)") collabels("price") coeflabels( _cons "Constant" ) ///
+														  refcat( foreign "Controls", nolabel) substitute(Standard "Clustered standard") nogaps nonum
+														  
+	esttab		using		"$table_dir\reg_prices_5"	, replace booktabs title(Car Prices: Complete Format\label{reg_prices_5}) /// 
+														  label star(* .10 ** .05 *** .01) b(2) se(2) r2 /// 
+														  mtitles("\textbf{Model (1)}" "\textbf{Model (2)}" "\textbf{Model (3)}" ) collabels("price") /// 
+														  coeflabels( _cons "Constant" ) refcat( foreign "\textbf{Controls}", nolabel) substitute(Standard "`SE' standard" {l} {c}) nogaps nonum
+														  
+	esttab 		using  		"$table_dir\`label'", $stars $reg_format $reg_decimal `locals' 
 	eststo clear
 	
 	

@@ -1,31 +1,36 @@
 \begin{table}[htbp]\centering
 \def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
-\caption{Car Prices \label{reg_prices}}
+\caption{Car Prices: Simple Format}
 \begin{tabular}{l*{3}{c}}
-\toprule
-                    &\multicolumn{1}{c}{\textbf{Model (1)}}&\multicolumn{1}{c}{\textbf{Model (2)}}&\multicolumn{1}{c}{\textbf{Model (3)}}\\
-                    &       price         &       price         &       price         \\
-\midrule
+\hline\hline
+                    &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}\\
+                    &\multicolumn{1}{c}{Price}&\multicolumn{1}{c}{Price}&\multicolumn{1}{c}{Price}\\
+\hline
 Mileage (mpg)       &     -238.89\sym{***}&      -14.29         &      -51.40         \\
                     &     (77.68)         &     (56.50)         &     (35.30)         \\
-\textbf{Controls}   &                     &                     &                     \\
+[1em]
 Car origin          &                     &     3502.52\sym{***}&        0.00         \\
                     &                     &    (765.47)         &         (.)         \\
+[1em]
 Headroom (in.)      &                     &     -606.66\sym{***}&     -522.46\sym{***}\\
                     &                     &    (192.43)         &    (123.44)         \\
+[1em]
 Trunk space (cu. ft.)&                     &       63.17         &       83.05         \\
                     &                     &     (49.18)         &     (50.78)         \\
+[1em]
 Weight (lbs.)       &                     &        5.72\sym{**} &        2.43         \\
                     &                     &      (2.20)         &      (1.69)         \\
+[1em]
 Length (in.)        &                     &      -90.18         &      -43.68         \\
                     &                     &     (60.81)         &     (50.48)         \\
+[1em]
 Constant            &    11253.06\sym{***}&     6059.71         &     8354.29\sym{*}  \\
                     &   (1982.42)         &   (6015.16)         &   (4234.85)         \\
-\midrule
+\hline
 Observations        &          74         &          74         &          67         \\
 \(R^{2}\)           &       0.220         &       0.566         &       0.848         \\
-\bottomrule
-\multicolumn{4}{c}{\footnotesize Clustered standard errors in parentheses}\\
-\multicolumn{4}{c}{\footnotesize \sym{*} \(p<.10\), \sym{**} \(p<.05\), \sym{***} \(p<.01\)}\\
+\hline\hline
+\multicolumn{4}{l}{\footnotesize Standard errors in parentheses}\\
+\multicolumn{4}{l}{\footnotesize \sym{*} \(p<.10\), \sym{**} \(p<.05\), \sym{***} \(p<.01\)}\\
 \end{tabular}
 \end{table}

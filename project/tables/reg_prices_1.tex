@@ -1,0 +1,35 @@
+\begin{table}[htbp]\centering
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\caption{Car Prices: No Format}
+\begin{tabular}{l*{3}{c}}
+\hline\hline
+            &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}\\
+            &\multicolumn{1}{c}{price}&\multicolumn{1}{c}{price}&\multicolumn{1}{c}{price}\\
+\hline
+mpg         &      -238.9\sym{**} &      -14.29         &      -51.40         \\
+            &     (-3.08)         &     (-0.25)         &     (-1.46)         \\
+[1em]
+foreign     &                     &      3502.5\sym{***}&           0         \\
+            &                     &      (4.58)         &         (.)         \\
+[1em]
+headroom    &                     &      -606.7\sym{**} &      -522.5\sym{***}\\
+            &                     &     (-3.15)         &     (-4.23)         \\
+[1em]
+trunk       &                     &       63.17         &       83.05         \\
+            &                     &      (1.28)         &      (1.64)         \\
+[1em]
+weight      &                     &       5.717\sym{*}  &       2.434         \\
+            &                     &      (2.60)         &      (1.44)         \\
+[1em]
+length      &                     &      -90.18         &      -43.68         \\
+            &                     &     (-1.48)         &     (-0.87)         \\
+[1em]
+\_cons      &     11253.1\sym{***}&      6059.7         &      8354.3         \\
+            &      (5.68)         &      (1.01)         &      (1.97)         \\
+\hline
+\(N\)       &          74         &          74         &          67         \\
+\hline\hline
+\multicolumn{4}{l}{\footnotesize \textit{t} statistics in parentheses}\\
+\multicolumn{4}{l}{\footnotesize \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)}\\
+\end{tabular}
+\end{table}

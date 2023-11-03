@@ -167,7 +167,7 @@ set scheme cblind1
 	eststo: 	reg 	dependent_var 	independent_var	control_var1			, $regression // example format of regression. 
 	estadd		local 	FE		"NO"                                            // Manually adding a scalar 
 
-	esttab 		using  		"$table_dir\`label'", $reg_format $reg_decimal `locals' 
+	esttab 		using  		"$table_dir\`label'", $stars $reg_format $reg_decimal `locals' 
 	eststo clear
 	
 	
