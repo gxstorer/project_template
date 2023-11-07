@@ -9,23 +9,23 @@ set scheme cblind1
 
 * Set Project Folder Paths *****************************************************
 
-	local 		project 		"X"				// (NOTE) Only required for project owner	
-										// (Required) // replace "X" with project folder name
+	local 		project 		"X"                             // (NOTE) Only required for project owner	
+                                                                                // (Required) // replace "X" with project folder name
 	
-	global 		data_dir 		"data\original_data\" 	 	// Path to source data
-	global 		work_dir 		"data\working_data\" 		// Path to any produced data files within project
-	global 		table_dir 		"project\tables\" 		// Path to tables produced for project
+	global 		data_dir 		"data\original_data\"           // Path to source data
+	global 		work_dir 		"data\working_data\"            // Path to any produced data files within project
+	global 		table_dir 		"project\tables\"               // Path to tables produced for project
 	global 		figure_dir		"project\figures\"              // Path to any graphs or images produced for project
 
 * Set Current Directory	******************************************************** 
 
-	if 		"`c(username)'" != "GRANTS" { 	  			// (NOTE) 	Only Required for external users.
-				cd "X"						// (Required) // Replace "X" with directory path to project folder. Make sure project has all three folders above.
+	if 		"`c(username)'" != "GRANTS" {                           // (NOTE) 	Only Required for external users.
+				cd "X"                                          // (Required) // Replace "X" with directory path to project folder. Make sure project has all three folders above.
 }	
 
 	if 		"`c(username)'" == "GRANTS" {
 				cd "C:\Users\grants\OneDrive - Inter-American Development Bank Group\Project\\`project'\"
-} 										// Will set current directory to Grant's path if username is listed as "GRANTS"
+}                                                                               // Will set current directory to Grant's path if username is listed as "GRANTS"
 
 * Set General Output Formats *************************************************** // Set of commands that will be applied to entire project. 
 	
