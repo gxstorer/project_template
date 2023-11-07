@@ -12,10 +12,10 @@ set scheme cblind1
     local       project         "X"                                             // (NOTE) Only required for project owner	
                                                                                 // (Required) // replace "X" with project folder name
 	
-    global 		data_dir        "data\original_data\"                           // Path to source data
-    global 		work_dir        "data\working_data\"                            // Path to any produced data files within project
-    global 		table_dir       "project\tables\"                               // Path to tables produced for project
-    global 		figure_dir      "project\figures\"                              // Path to any graphs or images produced for project
+    global      data_dir        "data\original_data\"                           // Path to source data
+    global 	work_dir        "data\working_data\"                            // Path to any produced data files within project
+    global 	table_dir       "project\tables\"                               // Path to tables produced for project
+    global 	figure_dir      "project\figures\"                              // Path to any graphs or images produced for project
 
 * Set Current Directory	******************************************************** 
 
@@ -48,7 +48,7 @@ set scheme cblind1
     global      stat_cells      "nogaps collabels(none) cells(mean(fmt(%7.1f)))" 
 //                                                                              // (Optional)  Default format is 7 digit max, with 2 decimal points. 
 //                                                                              		To change decimal point, change the "2" value to desired decimal point number.
-//                                                                                      Collabels removes the statistic label from each column.		
+//                                                                                              Collabels removes the statistic label from each column.		
 	
     global      balance_format 	"replace booktabs label compress nogaps"        // (Optional) For balance testing tables.   
 //                                                                                          	"replace"/"ammend" = overwrite file, 
@@ -57,11 +57,11 @@ set scheme cblind1
 //                                                                                              "nogaps"/"gaps" = table height, 
 //                                                                                              "booktabs" = Overleaf LaTeX table format.		
     global      balance_cells	"cells("mean(pattern(1 1 0) fmt(%7.2f) label(Mean)) sd(pattern(1 1 0) fmt(%7.2f) label(Std. Dev.)) b(star pattern(0 0 1) fmt(%7.2f) label(Mean)) t(pattern(0 0 1) par fmt(%7.2f) label(T-Stat))") "          
-//	                                                                            // (Optional) Table default will display mean & sd for the two samples that
+//	                                                                           // (Optional) Table default will display mean & sd for the two samples that
 //                                                                              		  are being compared, with the 3rd model being the difference between samples. 
-//                                                                                        pattern() determines if given stat is to be displayed in a particular model.
-//                                                                                        label()   manually labels each column.
-//                                                                              	      fmt()     formats cells to 2 decimal points.	
+//                                                                                                pattern() determines if given stat is to be displayed in a particular model.
+//                                                                                                label()  manually labels each column.
+//                                                                                                 fmt()     formats cells to 2 decimal points.	
 
 
 * Set Regression Formats *******************************************************
@@ -78,7 +78,7 @@ set scheme cblind1
 	
     global      graph_export    " as(png)  name("Graph") replace "              // Exporting format for all graphs.
 	
-    global      regression 	    " "                                             // (Optional) If using a specific kind of Standard Error, or other after 
+    global      regression      " "                                             // (Optional) If using a specific kind of Standard Error, or other after 
 //                                                                                              comma commands that will be repeated in all regressions, place here.
 
 ********************************************************************************
@@ -94,10 +94,10 @@ set scheme cblind1
 //                                                                              		\label = adding LaTeX command to create a reference label.	
     local       columns     "mtitles("Name1" "Name2" )"                         // (Manual) // Customize table columns by order L-R : "Name1" "Name2" ...
 	
-    local       groups 		"refcat( var1 "\textbf{Group1}" var2 "\textbf{}", nolabel)" 
+    local       groups      "refcat( var1 "\textbf{Group1}" var2 "\textbf{}", nolabel)" 
 //                                                                            	// (Manual) // To add group names to set of variables in table.
-//                                                                              		         Order process: (first var in group) "Group Name" ...
-//                                                                              		         nolabel = used to leave rest of row blank at group name rows. 
+//                                                                                               Order process: (first var in group) "Group Name" ...
+//                                                                                               nolabel = used to leave rest of row blank at group name rows. 
     local       text        "substitute(centering "centering $text " )"	        // (Optional) Setting balance tables text size, using text size macro.
 	
     local       locals      " `title' `columns' `groups' `text' "               // Compiles macros together.
@@ -111,18 +111,18 @@ set scheme cblind1
 	
 * Balance Testing Template *****************************************************
 
-    local       label        "table_balance" 			                        // (Manual) // Enter desired file name. Also used as ref label in LaTeX.
+    local       label        "table_balance"                                    // (Manual) // Enter desired file name. Also used as ref label in LaTeX.
 
     local       title        "title("Line1" "Line2"\label{`label'})"	        // (Manual) // For mutliple lines, use "Line1" "Line2" for multiple line.
-//                                                                              		        \label = adding LaTeX command to create a reference label.
+//                                                                                               \label = adding LaTeX command to create a reference label.
     local       columns      "mtitles("\textbf{Treatment}" "\textbf{Control}" "\textbf{Difference}") " 		
 //                                                                              // (Manual) // Customize table columns by order L-R : "Name1" "Name2" ...
 //                                                                                               Remove all string except for "" if not used. 
     local        groups      "refcat( var1 "\textbf{Group1}" var2 "\textbf{}", nolabel)" 
 //                                                                            	// (Manual) // To add group names to set of variables in table.
-//                                                                              		         Order process: (first var in group) "Group Name" ...
-//                                                                              		         nolabel = used to leave rest of row blank at group name rows. 
-    local        text        "substitute(centering "centering $text " )"	    // (Optional) Setting balance tables text size, using text size macro.
+//                                                                                               Order process: (first var in group) "Group Name" ...
+//                                                                                               nolabel = used to leave rest of row blank at group name rows. 
+    local        text        "substitute(centering "centering $text " )"        // (Optional) Setting balance tables text size, using text size macro.
 	
     local       locals       " `title' `columns' `groups' `text' "   // Compiles macros together.
 
@@ -139,31 +139,31 @@ set scheme cblind1
 
     local       label       "reg_"                                              // (Manual) // Enter desired file name. Also used as ref label in LaTeX.
 
-    local       title       "title("Line1" "Line2"\label{`label'})"	            // (Manual) // For mutliple lines, use "Line1" "Line2" for multiple line.
-//                                                                               		         \label = adding LaTeX command to create a reference label.
+    local       title       "title("Line1" "Line2"\label{`label'})"             // (Manual) // For mutliple lines, use "Line1" "Line2" for multiple line.
+//                                                                                               \label = adding LaTeX command to create a reference label.
     local       columns     "mtitles("\textbf{Name1}" "\textbf{Name2}" ) " 	
-										                                        // (Manual) // Used to label models.
-//                                                                              		         Customize table columns by order L-R : "Name1" "Name2" ...
-// 												                                                 Remove all string except for "" if not used. 
+                                                                                // (Manual) // Used to label models.
+//                                                                                               Customize table columns by order L-R : "Name1" "Name2" ...
+//                                                                                               Remove all string except for "" if not used. 
     local       cells       "collabels("dependent_var")"                        // (Manual) // When using `columns', this command allows you to label the 
-//                                                                              		dependent variable that the coefficients are being compared to. 
+//                                                                              		 dependent variable that the coefficients are being compared to. 
     local       coef        "coeflabels( _cons "Constant" )"	// (Optional) Customize coefficients: (var) "New Name" ...
     local       groups      "refcat( var1 "\textbf{Group1}" var2 "\textbf{}", nolabel)" 
 //                                                                            	// (Manual) // To add group names to set of variables in table.
-//                                                                              		         Order process: (first var in group) "Group Name" ...
-//                                                                              		         nolabel = used to leave rest of row blank at group name rows. 
+//                                                                                               Order process: (first var in group) "Group Name" ...
+//                                                                                               nolabel = used to leave rest of row blank at group name rows. 
 
-    local       SE          " "				                                    // (Optional) If using other kind of SE, enter term you want listed that 
-//                                                                                 		        precedes the word "Standard Errors."
+    local       SE          " "	                                                // (Optional) If using other kind of SE, enter term you want listed that 
+//                                                                                               precedes the word "Standard Errors."
     local       footer      "r2 substitute(Standard "`SE' standard" {l} {c})"	
-									                                         	// (Optional) r2=include r2 in footer. 
-//                                                                              		        substitute() enters what was in SE local, but also 
-//                                                                              		        manually reformats footer to be centered.
-//											                                             (NOTE) could potentially affect other elements, since any 
-// 												                                                left-aligned cells will be centered.
+                                                                                // (Optional) r2=include r2 in footer. 
+//                                                                                              substitute() enters what was in SE local, but also 
+//                                                                                              manually reformats footer to be centered.
+//                                                                                       (NOTE) could potentially affect other elements, since any 
+//                                                                                              left-aligned cells will be centered.
    
-    local       scalar      "scalars("e_name label")" 		                    // (Optional) If you want to add additional footer content,
-// 										                                                 		enter scalar name/e(name), followed by what you want to label this scalar.
+    local       scalar      "scalars("e_name label")"                           // (Optional) If you want to add additional footer content,
+// 										                 enter scalar name/e(name), followed by what you want to label this scalar.
 	
     local 		locals       "`title' `columns' `cells' `coef' `groups' `footer' `scalar' " // Compiles all locals together. 
 	
@@ -178,32 +178,32 @@ set scheme cblind1
 * Twoway Graph Template  *******************************************************
 
     local       label        "graph_"
-    local       legend	     "legend(order() span size(small) )" 	            // (Manual) // Order (number) "name" (number) "name" ... 
-    local       titles       "title() xtitle() ytitle()" 		                // (Manual) // Axis titles. Remove if n/a. 
-    local       xline        "xline(0.5, lcol(stone) lwidth(medthick))"         // (Manual) // Placement on x-axis, followed by color and thickness.
-// 													                                             Remove all string except for "" if not used.			
-    local       locals       "`legend' `titles' `xline'" 		                // (Optional) Add any new locals to the command 
+    local       legend	     "legend(order() span size(small) )"              // (Manual) // Order (number) "name" (number) "name" ... 
+    local       titles       "title() xtitle() ytitle()"                      // (Manual) // Axis titles. Remove if n/a. 
+    local       xline        "xline(0.5, lcol(stone) lwidth(medthick))"       // (Manual) // Placement on x-axis, followed by color and thickness.
+//                                                                                             Remove all string except for "" if not used.			
+    local       locals       "`legend' `titles' `xline'"                      // (Optional) Add any new locals to the command 
 	
-    twoway      (scatter    (Y-Var1) 	(X-Var)  	if (Condition)  ,  	mcolor(edkblue) msymbol(diamond_hollow) msize(2-pt) sort) ///
-			    (line 	    (Y-Var2) 	(X-Var)                     , 	lcol("187 0 0") lwidth(thick)) ///
-			    (lfitci     (Y-Var1) 	(X-Var)  	if (Condition)  ,	lcol(edkblue)   lwidth(medthick)) ///
+    twoway      (scatter    (Y-Var1) 	(X-Var)  	           if (Condition)  ,  mcolor(edkblue) msymbol(diamond_hollow) msize(2-pt) sort) ///
+			    (line       (Y-Var2) 	(X-Var)                    ,  lcol("187 0 0") lwidth(thick)) ///
+			    (lfitci     (Y-Var1) 	(X-Var)    if (Condition)  ,	lcol(edkblue) lwidth(medthick)) ///
 			    ,  $graph_twoway `locals'
 			
-    graph       export 		"$figure_dir\`label'.png"		, 	$graph_export 
+    graph       export      "$figure_dir\`label'.png"    ,         $graph_export 
 
 * Bar Graph Template  **********************************************************	
 
-    local       label 		"graph_"
-    local       legend 		"legend(order() span size(small) color(white))" // (Manual) // Order (number) "name" (number) "name" ... 
-    local       titles 		"title() xtitle() ytitle()" 			// (Manual) // Axis titles. Remove if n/a. 
+    local       label       "graph_"
+    local       legend 	    "legend(order() span size(small) color(white))" // (Manual) // Order (number) "name" (number) "name" ... 
+    local       titles 	    "title() xtitle() ytitle()" 			// (Manual) // Axis titles. Remove if n/a. 
 	
-    local       locals 		" `legend' 	`titles' "
+    local       locals 	    " `legend'    `titles' "
 	
     graph       bar        (Y-Var1)  (Y-Var2)  (Y-Var3)    ,     over("X-Var") /// 
-		        bar(1, color("103 71 54"))  bar(2, color("235 188 78"))    bar(3,color("187 0 0")) /// 
-		        $graph_hist `locals'
+		           bar(1, color("103 71 54"))  bar(2, color("235 188 78"))    bar(3,color("187 0 0")) /// 
+		           $graph_hist `locals'
 				
-    graph       export 		"$figure_dir\`label'.png"		, 	$graph_export 
+    graph       export    "$figure_dir\`label'.png"   ,    $graph_export 
 	
 */	
 
