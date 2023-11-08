@@ -9,7 +9,7 @@ set scheme cblind1
 
 * Set Project Folder Paths *****************************************************
 
-    local       project         "X"                                             // (NOTE) Only required for project owner	
+    local           project         "X"                                         // (NOTE) Only required for project owner	
                                                                                 // (Required) // replace "X" with project folder name
 	
     global          data_dir        "data\original_data\"                           // Path to source data
