@@ -9,17 +9,17 @@ set scheme cblind1
 
 * Set Project Folder Paths *****************************************************
 
-    local       project         "X"                                             // (NOTE) Only required for project owner	
+    local           project         "X"                                         // (NOTE) Only required for project owner	
                                                                                 // (Required) // replace "X" with project folder name
 	
-    global      data_dir        "data\original_data\"                           // Path to source data
+    global          data_dir        "data\original_data\"                           // Path to source data
     global 	    work_dir        "data\working_data\"                            // Path to any produced data files within project
     global 	    table_dir       "project\tables\"                               // Path to tables produced for project
     global 	    figure_dir      "project\figures\"                              // Path to any graphs or images produced for project
 
 * Set Current Directory	******************************************************** 
 
-    if          "`c(username)'" != "GRANTS" {                                   // (NOTE) 	Only Required for external users.
+    if          "`c(username)'" != "GRANTS" {                                   // (NOTE)   Only Required for external users.
                    cd "X"                                                       // (Required) // Replace "X" with directory path to project folder. Make sure project has all three folders above.
 }	
 
@@ -90,7 +90,7 @@ set scheme cblind1
 * Summary Statistics Template **************************************************
     local       label       "table_summary"                                     // (Manual) // Enter desired file name. Also used as ref label in LaTeX.
 	
-    local       title       "title("Line1" "Line2"\label{`label'})"	            // (Manual) // For mutliple lines, use "Line1" "Line2" for multiple line.
+    local       title       "title("Line1" "Line2"\label{`label'})"             // (Manual) // For mutliple lines, use "Line1" "Line2" for multiple line.
 //                                                                                               \label = adding LaTeX command to create a reference label.	
     local       columns     "mtitles("Name1" "Name2" )"                         // (Manual) // Customize table columns by order L-R : "Name1" "Name2" ...
 	
@@ -113,7 +113,7 @@ set scheme cblind1
 
     local       label       "table_balance"                                     // (Manual) // Enter desired file name. Also used as ref label in LaTeX.
 
-    local       title       "title("Line1" "Line2"\label{`label'})"	            // (Manual) // For mutliple lines, use "Line1" "Line2" for multiple line.
+    local       title       "title("Line1" "Line2"\label{`label'})"             // (Manual) // For mutliple lines, use "Line1" "Line2" for multiple line.
 //                                                                                               \label = adding LaTeX command to create a reference label.
     local       columns     "mtitles("\textbf{Treatment}" "\textbf{Control}" "\textbf{Difference}") " 		
 //                                                                              // (Manual) // Customize table columns by order L-R : "Name1" "Name2" ...
@@ -182,7 +182,7 @@ set scheme cblind1
     local       titles       "title() xtitle() ytitle()"                        // (Manual) // Axis titles. Remove if n/a. 
     local       xline        "xline(0.5, lcol(stone) lwidth(medthick))"         // (Manual) // Placement on x-axis, followed by color and thickness.
 //                                                                                               Remove all string except for "" if not used.			
-    local       locals       "`legend' `titles' `xline'"                         // (Optional) Add any new locals to the command 
+    local       locals       "`legend' `titles' `xline'"                        // (Optional) Add any new locals to the command 
 	
     twoway      (scatter    (Y-Var1)    (X-Var)    if (Condition)  ,  mcolor(edkblue) msymbol(diamond_hollow) msize(2-pt) sort) ///
                 (line       (Y-Var2)    (X-Var)                    ,  lcol("187 0 0") lwidth(thick)) ///
