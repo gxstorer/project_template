@@ -9,24 +9,26 @@ set scheme cblind1
 
 * Set Project Folder Paths *****************************************************
 
-    local           project         "X"                                         // (NOTE) Only required for project owner	
+    local       project         "X"                                             // (NOTE) Only required for project owner	
                                                                                 // (Required) // replace "X" with project folder name
 	
-    global          data_dir        "data\original_data\"                           // Path to source data
+    global      data_dir        "data\original_data\"                           // Path to source data
     global 	    work_dir        "data\working_data\"                            // Path to any produced data files within project
     global 	    table_dir       "project\tables\"                               // Path to tables produced for project
     global 	    figure_dir      "project\figures\"                              // Path to any graphs or images produced for project
 
 * Set Current Directory	******************************************************** 
 
-    if          "`c(username)'" != "GRANTS" {                                   // (NOTE)   Only Required for external users.
-                   cd "X"                                                       // (Required) // Replace "X" with directory path to project folder. Make sure project has all three folders above.
-}	
-
     if          "`c(username)'" == "GRANTS" {
                    cd "C:\Users\grants\OneDrive - Inter-American Development Bank Group\Project\\`project'\"
-}                                                                               // Will set current directory to Grant's path if username is listed as "GRANTS"
+}                                                                               // (Manual) // Will set current directory to Grant's path if username is 
+//                                                                                               listed as "GRANTS" Replace with your own username and 
+//                                                                                               change the path to make this your own.
 
+    if          "`c(username)'" != "GRANTS" {                                   // (NOTE)   Only Required for external users.
+                   cd "X"                                                       // (Required) // Replace "X" with directory path to project folder. 
+} //                                                                                               Make sure project has all three folders above.
+	
 * Set General Output Formats *************************************************** // Set of commands that will be applied to entire project. 
 	
     global      text            "\small"                                        // (Optional) Setting the text size of tables. Needs to be included into 
@@ -97,7 +99,7 @@ set scheme cblind1
     local       groups      "refcat( var1 "\textbf{Group1}" var2 "\textbf{}", nolabel)" 
 //                                                                            	// (Manual) // To add group names to set of variables in table.
 //                                                                                               Order process: (first var in group) "Group Name" ...
-//                                                                                               nolabel = used to leave rest of row blank at group name rows. 
+//                                                                                               nolabel = To leave rest of row blank at group name rows. 
     local       text        "substitute(centering "centering $text " )"	        // (Optional) Setting balance tables text size, using text size macro.
 	
     local       locals      " `title' `columns' `groups' `text' "               // Compiles macros together.
@@ -128,9 +130,9 @@ set scheme cblind1
 
 	
     eststo 		clear
-    eststo: 	estpost sum 	$stat_vars 		if $stat_sample == 0         
-    eststo: 	estpost sum 	$stat_vars 		if $stat_sample == 1	
-    eststo: 	estpost ttest 	$stat_vars 		, by($stat_sample ) unequal 
+    eststo: 	estpost     sum 	$stat_vars 		if $stat_sample == 0         
+    eststo: 	estpost     sum 	$stat_vars 		if $stat_sample == 1	
+    eststo: 	estpost     ttest 	$stat_vars 		, by($stat_sample ) unequal 
 	
     esttab 		using 		"$table_dir\`label'", $stars $balance_format $balance_cells `locals' 
     eststo 		clear 
